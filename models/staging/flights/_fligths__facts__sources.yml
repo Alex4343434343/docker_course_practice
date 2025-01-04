@@ -1,0 +1,30 @@
+sources:
+  - name: demo_src
+    tables:
+      - name: boarding_passes
+        description: Посадочные талоны для пассажиров
+        columns:
+          - name: ticket_no
+            description: Номер билета
+          - name: flight_id
+            description: Идентификатор рейса
+            tests: 
+              - not_null
+          - name: boarding_no
+            description: Номер посадочного талона
+          - name: seat_no
+            description: Номер места
+      - name: flights
+        description: Рейсы
+        freshness:
+          warn_after:
+            count: 3
+            period: hour
+          error_after:
+            count: 100
+            period: day       
+        loaded_at_field: actual_departure
+      - name: ticket_flights
+        description: Перелёты
+      - name: tickets
+        description: Билеты для пассажиров
