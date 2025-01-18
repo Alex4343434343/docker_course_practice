@@ -1,0 +1,32 @@
+models:
+  - name: fct_ticket_flights
+    description: Таблица с перелётами
+    docs:
+      show: true
+      node_color: green
+    meta:
+      owner: "alexkipr@mail.ru"
+    columns:
+      - name: ticket_no
+        description: Номер билета
+        constraints: 
+          - type: primary_key
+          - type: unique
+      - name: flight_id
+        description: Номер перелёта
+        constraints:
+          - type: foreign_key
+            to: ref('fct_flights')
+            to_columns: flight_id
+          - type: unique
+      - name: fare_conditions
+        description: Условия тарифа
+        constraints:
+          - type: not_null
+          - type: unique
+      - name: amount
+        description: Стоимость перелёта
+        constraints: 
+          - type: check
+            expression: "amount > 0"
+          - type: not_null
