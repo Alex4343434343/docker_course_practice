@@ -1,0 +1,6 @@
+seeds:
+  - name: airline_worker
+    description: Сотрудники авиакомании
+    config:
+      column_types:
+        passenger_id: varchar(20)
