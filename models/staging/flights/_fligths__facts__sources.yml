@@ -22,3 +22,7 @@ sources:
         description: Перелёты
       - name: tickets
         description: Билеты для пассажиров
+      - name: aircrafts
+        description: Самолёты
+      - name: seats
+        description: Посадочные места
